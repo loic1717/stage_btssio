@@ -5,7 +5,7 @@ from .models import Finance
 # Create your views here.
 #URL et Request 
 def finance_list(request,*args, **kwargs):
-    finance = Finance.objects.get.all()
+    finance = Finance.objects.get(id=1)
     context={
 'name':finance.name,
 'price':finance.price,
