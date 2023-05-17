@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=150)),
                 ('price', models.DecimalField(decimal_places=5, max_digits=1000000)),
                 ('description', models.TextField()),
-                ('image', models.ImageField(upload_to='')),
+                ('image', models.ImageField(upload_to='images')),
             ],
             options={
                 'verbose_name': 'Finance',
