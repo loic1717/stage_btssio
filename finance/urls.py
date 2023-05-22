@@ -19,9 +19,15 @@ from django.urls import path
 from bloc.views import finance_list
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls), 
     path('',finance_list,name='home'),
     # path('contact',contact,name='contact'),
     # path('bloc',blog,name='bloc')
 ]
 
+from django.conf import settings
+from django.conf.urls.static import static
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+    document_root=settings.MEDIA_ROOT)

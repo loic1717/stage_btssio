@@ -1,12 +1,23 @@
 {% extends 'base.html' %}
+
 {% block content %}
   <!-- Votre contenu ici -->
-  <div class="card" style="width: 18rem;">
-    <img src={{image}} class="card-img-top" alt="{{name}}">
-    <div class="card-body">
-      <h5 class="card-title">{{name}}</h5>
-      <p class="card-text">{{price}}</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
+  <div class="row">
+    {% for finance in finances %}
+      <div class="col-md-3">
+        <div class="card" style="width: 18rem;">
+          {% if finance.image %}
+            <img src="{{ finance.image.url }}" class="card-img-top" alt="{{ finance.name }}">
+          {% else %}
+            <h3>No image</h3>
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{finance.name}}</h5>
+            <p class="card-text">{{finance.price}}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>  
 {% endblock %}

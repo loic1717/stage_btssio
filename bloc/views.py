@@ -5,11 +5,9 @@ from .models import Finance
 # Create your views here.
 #URL et Request 
 def finance_list(request,*args, **kwargs):
-    finance = Finance.objects.get(id=1)
+    finance = Finance.objects.all()
     context={
-'name':finance.name,
-'price':finance.price,
-'image':finance.image
+    'finances': finance
     }
     return render(request, 'finance/detail.html',context)
 # def contact(request):
